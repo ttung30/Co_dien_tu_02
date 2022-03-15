@@ -17,7 +17,7 @@ void delay(unsigned int t){
 void main(){
 	TRISD=1;
 	ADCON1=0x0f;
-	while(1){
+	while(1){// vòng lặp vô hạn
 		if(button==1){
 			led=1;
 		}else{

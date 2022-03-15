@@ -1,27 +1,25 @@
 #include<p18f4520.h>
 
-#pragma config MCLRE=ON
+#define LED PORTDbits.RD1
 #pragma config OSC=HS
-#pragma config LVP=OFF
+#pragma config MCLRE=ON
 #pragma config WDT=OFF
+#pragma config LVP=OFF
 
-#define button PORTDbits.RD0
-#define led PORTDbits.RD1
-
-void delay(unsigned int t){
-	unsigned int x,y;
-	for(x=1;x<t;x++){
-		for(y=1;y<123;y++);
-	}
+void delay( unsigned t){
+unsigned int i,y;
+	for( i=0;i<t;i++){
+		for( y=1;y<123;y++);
+		}
 }
 void main(){
-	TRISD=1;
-	ADCON1=0x0f;
+	TRISD=0;
+	ADCON1=0X0F;
+	
 	while(1){
-		if(button==1){
-			led=1;
-		}else{
-			led=0;
-		}
+		LED=0;
+	delay(500);
+		LED=1;
+	delay(500);
 	}
 }
