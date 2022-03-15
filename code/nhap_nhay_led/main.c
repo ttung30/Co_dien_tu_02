@@ -1,11 +1,11 @@
 #include<p18f4520.h>
-
+#include<delays.h>
 #pragma config MCLRE=ON
 #pragma config OSC=HS
 #pragma config LVP=OFF
 #pragma config WDT=OFF
 
-#define button PORTDbits.RD0
+
 #define led PORTDbits.RD1
 
 void delay(unsigned int t){
@@ -15,13 +15,12 @@ void delay(unsigned int t){
 	}
 }
 void main(){
-	TRISD=1;
+	TRISD=0;
 	ADCON1=0x0f;
 	while(1){
-		if(button==1){
-			led=1;
-		}else{
-			led=0;
-		}
+		PORTD=1<<1;
+		Delay10TCYx(250);
+		PORTD=0<<1;
+		Delay10TCYx(250);
 	}
 }
