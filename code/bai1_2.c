@@ -11,11 +11,11 @@ void main(void)
 	TRISB=0b00001111;
 	TRISD=0;
 	while(1){
-	while(PB);
-	while(!PB);
-	dem++;
-	PORTD=1<<(dem-1);
+	while(PB);// chờ cho nút nhấn
+	while(!PB);// chờ nút nhả
+	dem++;// sau khi thực hiện 1 chu trình nhấn nhả mới tăng biến đếm, khong đươc dùng thẳng if bởi vì khi nhấn nút nó sẽ không hiểu là nhấn bao nhiêu lần
+	PORTD=1<<(dem-1);// ví dụ lần dầu nhân dem =1 thì phải trừ đi 1 để dịch trái từ 0
 	if(dem>=5)
-	PORTD=15<<0;
+	PORTD=15<<0;// dịch trái sau 5 lần nhấn
 
 }
