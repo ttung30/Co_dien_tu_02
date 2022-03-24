@@ -40,6 +40,9 @@ PORTD=0b00001000|dem;
 Delay10KTCYx(50);
 PORTD=0b11110111&dem;
 Delay10KTCYx(50);
+if(dem>7){
+	dem=0;
+}	
 } 
 
 }
