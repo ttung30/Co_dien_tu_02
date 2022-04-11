@@ -1,0 +1,62 @@
+#include<p18f4520.h>
+#include<stdio.h>
+#include<delays.h>
+//c?u hình
+#pragma config OSC=HS
+#pragma config WDT=OFF
+#pragma config MCLRE=ON
+#pragma config PBADEN=OFF
+unsigned int dem=0;
+//khai báo tên CTCPVN
+void ngat_uu_tien_cao(void);
+void ngat_uu_tien_thap(void);
+//Ði?m d?t CTCPVN có m?c uu tiên cao UTC, vector 0008H
+#pragma code uu_tien_cao=0x08
+void ngat_cao(void)
+{
+ngat_uu_tien_cao();
+}
+#pragma code
+#pragma interrupt ngat_uu_tien_cao
+void ngat_uu_tien_cao(void)
+{
+
+//xoa co ngat
+}
+//Ði?m d?t CTCPVN có m?c uu tiên th?p (UTT), vector 0018H
+#pragma code uu_tien_thap = 0x18
+void ngat_thap(void)
+{
+}
+#pragma code
+#pragma interrupt ngat_uu_tien_thap
+void ngat_uu_tien_thap(void)
+{
+}
+void main()
+{
+ADCON1=0x0F;
+TRISB=0;TRISD=0;// thiết lập output cho viec hien thi
+//x=32; N=31250
+//Dung ngat ngoai INT0 de dem
+INTCONbits.GIE=1;
+INTCONbits.INT0IE=1;
+//khoi tao cho timer0
+T0CON=0b00000100;
+T1CON=0b11000111;
+//tao thoi gian 1s:
+while(1)
+{
+T0CONbits.TMR0ON=0;
+TMR0H=(65536-31250)/256;
+TMR0L=(65536-31250)%256;
+T0CONbits.TMR0ON=1;
+while(INTCONbits.TMR0IF==0);
+INTCONbits.TMR0IF=0;
+
+PORTB=TMR1L; //hien thi 8bit cao o PORTC
+PORTD=TMR1H; //hien thi 8bit thap o PORTD
+TMR1H=0;
+TMR1L=0;
+}
+}
