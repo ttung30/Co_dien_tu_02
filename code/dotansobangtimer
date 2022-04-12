@@ -38,7 +38,7 @@ void main()
 ADCON1=0x0F;
 TRISB=0;TRISD=0;// thiết lập output cho viec hien thi
 //x=32; N=31250
-//Dung ngat ngoai INT0 de dem
+//Dung ngat ngoai INT0 de dem ( khong can thiet)
 INTCONbits.GIE=1;
 INTCONbits.INT0IE=1;
 //khoi tao cho timer0 và timer 1
