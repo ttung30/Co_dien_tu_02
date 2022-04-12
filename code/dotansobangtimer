@@ -41,7 +41,7 @@ TRISB=0;TRISD=0;// thiết lập output cho viec hien thi
 //Dung ngat ngoai INT0 de dem
 INTCONbits.GIE=1;
 INTCONbits.INT0IE=1;
-//khoi tao cho timer0
+//khoi tao cho timer0 và timer 1
 T0CON=0b00000100;
 T1CON=0b11000111;
 //tao thoi gian 1s:
@@ -54,7 +54,7 @@ T0CONbits.TMR0ON=1;
 while(INTCONbits.TMR0IF==0);
 INTCONbits.TMR0IF=0;
 
-PORTB=TMR1L; //hien thi 8bit cao o PORTC
+PORTB=TMR1L; //hien thi 8bit cao o PORTB
 PORTD=TMR1H; //hien thi 8bit thap o PORTD
 TMR1H=0;
 TMR1L=0;
