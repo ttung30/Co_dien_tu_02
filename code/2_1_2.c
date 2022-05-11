@@ -36,10 +36,11 @@ INTCON2bits.INTEDG1=1; //ngat bang suon am
 while(1)
 {
 
-PORTD=0b00001000|dem;
-Delay10KTCYx(50);
-PORTD=0b11110111&dem;
-Delay10KTCYx(50);
+PORTD=0b00001000|dem;// để ý bài 2 chúng ta phải làm sao cho cái bit thứ tư không bị ảnh hưởng khi ngắt xảy ra
+Delay10KTCYx(50);// cho nên sẽ phải dùng  toán tử and và or 
+PORTD=0b11110111&dem;// cụ thể khi nào muốn bit đó bằng 1 mà không bị ảnh hưởng ta dùng | or
+Delay10KTCYx(50);// ngược lại muốn reset xuống 0 ta dùng toán tử & and
+	// có 1 chút lưu ý and thì 1&1=1; 1&0=0 ; 1|0=0; 1|1=1;
 if(dem>7){
 	INTCON3bits.INT1IE=0;
 }	
