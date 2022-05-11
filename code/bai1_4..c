@@ -10,7 +10,7 @@ int i=0;
 void main(void)
 {
 	ADCON1=0x0f;
-	TRISB=0b00001111;
+	TRISB=0b00000011;
 	TRISD=0;
 	while(1){
 		//bat dau xet dieu kien neu dung if else se hợp lý hơn
