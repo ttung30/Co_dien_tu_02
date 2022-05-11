@@ -16,7 +16,7 @@ void main(void)
 	dem++;// sau khi thực hiện 1 chu trình nhấn nhả mới tăng biến đếm, khong đươc dùng thẳng if bởi vì khi nhấn nút nó sẽ không hiểu là nhấn bao nhiêu lần
 	PORTD=1<<(dem-1);// ví dụ lần dầu nhân dem =1 thì phải trừ đi 1 để dịch trái từ 0
 	if(dem>=5)
-	PORTD=15<<0;// dịch trái sau 5 lần nhấn
+	PORTD=15<<0;// dịch trái sau 15 lần nhấn
 
 }
 }
