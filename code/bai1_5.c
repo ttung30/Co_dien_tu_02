@@ -13,15 +13,16 @@ void main(void)
 	TRISB=0b00000011;
 	TRISD=0;
 	while(1){
-	if(PORTBbits.RB0==1)
+	if(PORTBbits.RB0==1)// trường hợp đầu tiên khí PB1 nhả
 	{
 		PORTD=0;
 		dem=0;
 	}
-    else{
+    else{// nhấn
 	while(PB2);
 	while(!PB2);
-	dem++;
+	dem++;// chờ và đếm
+	    //xét điều kiện không khuyến khích ae dùng dịch trái dịch phải| tuy trường hợp thì sẽ dùng
 	if(dem==1)
 	{
 		PORTD=1<<3;
