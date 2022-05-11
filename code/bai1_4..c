@@ -13,17 +13,17 @@ void main(void)
 	TRISB=0b00001111;
 	TRISD=0;
 	while(1){
-		
-	if(PORTB==3)
+		//bat dau xet dieu kien neu dung if else se hợp lý hơn
+	if(PORTB==3)//11 nhấn nhấn  pb2 pb1
 		i=3;
-	if(PORTB==1)
+	if(PORTB==1)//01 nhả nhấn
 		i=2;
-	if(PORTB==2)
+	if(PORTB==2)//10 nhấn nhả
 		i=1;
-	if(PORTB==0)
+	if(PORTB==0)//00 nhả nhả
 		i=0;
 			
-	PORTD=1<<i;
+	PORTD=1<<i;// xuất dữ liệu vừa xét ra port
 	
 }
 }
