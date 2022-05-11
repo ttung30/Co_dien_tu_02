@@ -3,10 +3,6 @@
 #pragma config OSC = HS
 #pragma config MCLRE = ON
 #pragma config WDT=OFF
-#define LED1 PORTDbits.RD0
-#define LED2 PORTDbits.RD1
-#define LED3 PORTDbits.RD2
-#define LED4 PORTDbits.RD3
 #define PB1 PORTBbits.RB0
 unsigned int dem=0,n=0;
 void main(void)
